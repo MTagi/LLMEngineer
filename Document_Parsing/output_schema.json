@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MTagi/LLMEngineer/Document_Parsing/output_schema.json",
+  "title": "Extracted document chunk",
+  "description": "Schema chung cho một record (block/chunk) trong chunks.jsonl, dùng cho mọi phương pháp extract trong Document_Parsing. Xem OUTPUT_FORMAT.md.",
+  "type": "object",
+  "required": [
+    "chunk_id",
+    "doc_id",
+    "content",
+    "content_format",
+    "page_start",
+    "page_end",
+    "extractor"
+  ],
+  "properties": {
+    "chunk_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "ID duy nhất, quy luật: doc__p<trang>__<index>"
+    },
+    "doc_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Tên/ID tài liệu gốc, vd. bao_cao_2025.pdf"
+    },
+    "content": {
+      "type": "string",
+      "description": "Nội dung block; bảng giữ dạng Markdown/HTML table"
+    },
+    "content_format": {
+      "type": "string",
+      "enum": ["plain", "markdown"],
+      "description": "Định dạng của content"
+    },
+    "page_start": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Trang bắt đầu, đánh từ 1"
+    },
+    "page_end": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Trang kết thúc; >= page_start"
+    },
+    "extractor": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Phương pháp + version, vd. pypdf-5.x, mineru-2.x"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["text", "title", "table", "image", "formula", "list"],
+      "default": "text",
+      "description": "Loại block (optional)"
+    },
+    "section_path": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Chuỗi heading từ gốc xuống (optional)"
+    },
+    "bbox": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Tọa độ block trên trang [x0, y0, x1, y1] (optional)"
+    },
+    "ocr_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Độ tin cậy OCR, chỉ có khi block đi qua OCR (optional)"
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Ngày extract, ISO YYYY-MM-DD (optional)"
+    }
+  },
+  "additionalProperties": false
+}
