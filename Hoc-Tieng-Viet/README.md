@@ -28,6 +28,7 @@ Toàn bộ nội dung gốc thuộc về Microsoft Corporation, phát hành theo
 | 05 | `05-ai-agents-for-beginners` | [microsoft/ai-agents-for-beginners](https://github.com/microsoft/ai-agents-for-beginners) | Bản dịch sẵn có (Co-op Translator) |
 | 06 | `06-mcp-for-beginners` | [microsoft/mcp-for-beginners](https://github.com/microsoft/mcp-for-beginners) | Bản dịch sẵn có (Co-op Translator) |
 | 07 | `07-AZD-for-beginners` | [microsoft/AZD-for-beginners](https://github.com/microsoft/AZD-for-beginners) | Bản dịch sẵn có (Co-op Translator) |
+| 08 | [`08-Nang-Cao-RAG-Agent-LLMOps`](./08-Nang-Cao-RAG-Agent-LLMOps/README.md) | Tự biên soạn | Lộ trình nâng cao (RAG/Agent nâng cao + LLMOps), học sau khi hoàn thành 01-07 |
 
 > Lưu ý: bản dịch tự động (Co-op Translator) có thể còn sai sót thuật ngữ kỹ
 > thuật ở một vài chỗ — nội dung gốc tiếng Anh trong repo chính thức vẫn là
