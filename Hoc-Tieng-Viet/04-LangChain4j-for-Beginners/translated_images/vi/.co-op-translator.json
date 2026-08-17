@@ -1,0 +1,536 @@
+{
+  "04-tools-spring-boot.a1bd8ae23cd098e1.webp": {
+    "original_hash": "79a86ab27b38d69feb8b17f94af99288",
+    "translation_date": "2026-03-03T14:31:47+00:00",
+    "source_file": "diagrams/04-tools-spring-boot.png",
+    "language_code": "vi"
+  },
+  "05-supervisor-agent.76491f14a6eed653.webp": {
+    "original_hash": "511042a7c0e06d00aa2327536e2c61d0",
+    "translation_date": "2026-03-03T14:31:59+00:00",
+    "source_file": "diagrams/05-supervisor-agent.png",
+    "language_code": "vi"
+  },
+  "LangChain4j.90e1d693fcc71b50.webp": {
+    "original_hash": "2b2dcf50ebdefc1d9e53029c330bfe50",
+    "translation_date": "2026-01-16T10:59:03+00:00",
+    "source_file": "images/LangChain4j.png",
+    "language_code": "vi"
+  },
+  "agent-listeners.784bfc403c80ea13.webp": {
+    "original_hash": "9086e2d2351d0b84e29bc47baa2f1e6b",
+    "translation_date": "2026-02-27T17:25:29+00:00",
+    "source_file": "05-mcp/images/agent-listeners.png",
+    "language_code": "vi"
+  },
+  "agentic-scope.95ef488b6c1d02ef.webp": {
+    "original_hash": "0f4ca84195eff59cce95e04dbd42a082",
+    "translation_date": "2026-02-27T17:25:43+00:00",
+    "source_file": "05-mcp/images/agentic-scope.png",
+    "language_code": "vi"
+  },
+  "chain-of-thought.5cff6630e2657e2a.webp": {
+    "original_hash": "c396f6bd0295f2bda88ba3ccaaa0f39b",
+    "translation_date": "2026-02-16T11:59:49+00:00",
+    "source_file": "02-prompt-engineering/images/chain-of-thought.png",
+    "language_code": "vi"
+  },
+  "constrained-output-pattern.0ce39a682a6795c2.webp": {
+    "original_hash": "62f6334475633fccbea231413ad315cf",
+    "translation_date": "2026-01-16T11:00:50+00:00",
+    "source_file": "02-prompt-engineering/images/constrained-output-pattern.png",
+    "language_code": "vi"
+  },
+  "context-assembly.7e6dd60c31f95978.webp": {
+    "original_hash": "74e57e6bb9ba34753c7f83dfcbb461a2",
+    "translation_date": "2026-02-20T11:19:10+00:00",
+    "source_file": "03-rag/images/context-assembly.png",
+    "language_code": "vi"
+  },
+  "context-memory.dff30ad9fa78832a.webp": {
+    "original_hash": "1cf5db5d30a28248b04f6081c6398934",
+    "translation_date": "2026-01-16T11:00:40+00:00",
+    "source_file": "02-prompt-engineering/images/context-memory.png",
+    "language_code": "vi"
+  },
+  "conversation-isolation.e00336cf8f7a3e3f.webp": {
+    "original_hash": "9a84aad20bec41d5b0f52d02c88bdef2",
+    "translation_date": "2026-01-16T11:10:57+00:00",
+    "source_file": "docs/images/conversation-isolation.png",
+    "language_code": "vi"
+  },
+  "conversational-chat-stateful-demo.e5be9822eb23ff59.webp": {
+    "original_hash": "ecd11738f8a5b1ff321eaa7e553b9a92",
+    "translation_date": "2026-01-16T10:59:54+00:00",
+    "source_file": "01-introduction/images/conversational-chat-stateful-demo.png",
+    "language_code": "vi"
+  },
+  "cosine-similarity.9baeaf3fc3336abb.webp": {
+    "original_hash": "9225a016a9bdffa26ddda6336468ddf5",
+    "translation_date": "2026-02-27T17:22:57+00:00",
+    "source_file": "03-rag/images/cosine-similarity.png",
+    "language_code": "vi"
+  },
+  "course-completion.48cd201f60ac7570.webp": {
+    "original_hash": "dd1e1b76ef6e36e9e3fb43e18283473c",
+    "translation_date": "2026-02-27T17:25:37+00:00",
+    "source_file": "05-mcp/images/course-completion.png",
+    "language_code": "vi"
+  },
+  "custom-vs-mcp-tools.c4f9b6b1cb65d8a1.webp": {
+    "original_hash": "7ba56c2cd920f481cf1795b01b93f5c1",
+    "translation_date": "2026-02-27T17:25:11+00:00",
+    "source_file": "05-mcp/images/custom-vs-mcp-tools.png",
+    "language_code": "vi"
+  },
+  "dashboard-home.5444dbda4bc1f79d.webp": {
+    "original_hash": "3c10f2ac0c216bb86a974f56fe2120a5",
+    "translation_date": "2026-01-16T11:02:09+00:00",
+    "source_file": "02-prompt-engineering/images/dashboard-home.png",
+    "language_code": "vi"
+  },
+  "dashboard.69c7479aef09ff6b.webp": {
+    "original_hash": "121c4b1dd4b6676525a4d11e990354fe",
+    "translation_date": "2026-01-16T10:59:43+00:00",
+    "source_file": "01-introduction/images/dashboard.png",
+    "language_code": "vi"
+  },
+  "dashboard.9b519b1a1bc1b30a.webp": {
+    "original_hash": "758903d14d189faa0e57ccb9b0ab526e",
+    "translation_date": "2026-01-16T11:08:03+00:00",
+    "source_file": "04-tools/images/dashboard.png",
+    "language_code": "vi"
+  },
+  "dashboard.da2c2130c904aaf0.webp": {
+    "original_hash": "cd1a01352482b96b964b169cf7ab2407",
+    "translation_date": "2026-01-16T11:03:17+00:00",
+    "source_file": "02-prompt-engineering/images/dashboard.png",
+    "language_code": "vi"
+  },
+  "dashboard.fbe6e28bf4267ffe.webp": {
+    "original_hash": "dcba4dbca7117902a83c98b3792d0af3",
+    "translation_date": "2026-01-16T11:06:32+00:00",
+    "source_file": "03-rag/images/dashboard.png",
+    "language_code": "vi"
+  },
+  "decision-making.409cd562e5cecc49.webp": {
+    "original_hash": "9c3bbccc833be19b424faa3cc79dcff7",
+    "translation_date": "2026-02-27T17:26:31+00:00",
+    "source_file": "04-tools/images/decision-making.png",
+    "language_code": "vi"
+  },
+  "document-chunking.a5df1dd1383431ed.webp": {
+    "original_hash": "38932705b4df98a8493fac6cda5bcd0c",
+    "translation_date": "2026-02-20T11:18:54+00:00",
+    "source_file": "03-rag/images/document-chunking.png",
+    "language_code": "vi"
+  },
+  "easy-rag-pipeline.2e1602e2ad2ded42.webp": {
+    "original_hash": "f8a7e3ffd5f7919670dbee9a1001fe1b",
+    "translation_date": "2026-02-27T17:24:04+00:00",
+    "source_file": "03-rag/images/easy-rag-pipeline.png",
+    "language_code": "vi"
+  },
+  "eight-patterns.fa1ebfdf16f71e9a.webp": {
+    "original_hash": "cad4e0034cecc0a1b84542caa5f641cc",
+    "translation_date": "2026-01-16T11:05:24+00:00",
+    "source_file": "02-prompt-engineering/images/eight-patterns.png",
+    "language_code": "vi"
+  },
+  "embedding-failure-modes.b2bcb901d8970fc0.webp": {
+    "original_hash": "4339e119baa801e22d00da36f6f39af6",
+    "translation_date": "2026-02-27T17:23:56+00:00",
+    "source_file": "03-rag/images/embedding-failure-modes.png",
+    "language_code": "vi"
+  },
+  "embedding-model-concept.90760790c336a705.webp": {
+    "original_hash": "73ca805b149975f261644238fccfc433",
+    "translation_date": "2026-02-27T17:23:40+00:00",
+    "source_file": "03-rag/images/embedding-model-concept.png",
+    "language_code": "vi"
+  },
+  "embedding-search-steps.f54c907b3c5b4332.webp": {
+    "original_hash": "b0a0be3ef12c9901a957d770fa84b95b",
+    "translation_date": "2026-02-27T17:23:25+00:00",
+    "source_file": "03-rag/images/embedding-search-steps.png",
+    "language_code": "vi"
+  },
+  "error-handling-flow.9a330ffc8ee0475c.webp": {
+    "original_hash": "d9be991ccc1151bd127b424577b8e33d",
+    "translation_date": "2026-02-27T17:27:59+00:00",
+    "source_file": "04-tools/images/error-handling-flow.png",
+    "language_code": "vi"
+  },
+  "few-shot-prompting.9d9eace1da88989a.webp": {
+    "original_hash": "3028419888cb8dbf1d70740b94d38682",
+    "translation_date": "2026-02-16T11:59:36+00:00",
+    "source_file": "02-prompt-engineering/images/few-shot-prompting.png",
+    "language_code": "vi"
+  },
+  "file-report-workflow.649bb7a896800de9.webp": {
+    "original_hash": "cffe9673fbcdf7b210e1f6a1c73af969",
+    "translation_date": "2026-02-27T17:24:13+00:00",
+    "source_file": "05-mcp/images/file-report-workflow.png",
+    "language_code": "vi"
+  },
+  "five-patterns-overview.160f35045ffd2a94.webp": {
+    "original_hash": "1f17703fd26e2973d60778e39fd656bb",
+    "translation_date": "2026-02-16T11:59:13+00:00",
+    "source_file": "02-prompt-engineering/images/five-patterns-overview.png",
+    "language_code": "vi"
+  },
+  "home-screen.121a03206ab910c0.webp": {
+    "original_hash": "a166e4a0960b604456c0b734d3f4c9b8",
+    "translation_date": "2026-01-16T11:00:01+00:00",
+    "source_file": "01-introduction/images/home-screen.png",
+    "language_code": "vi"
+  },
+  "how-langchain4j-fits.dfff4b0aa5f7812d.webp": {
+    "original_hash": "11814aa66f7cdfb2863ebd289d95c3b4",
+    "translation_date": "2026-02-16T11:59:42+00:00",
+    "source_file": "02-prompt-engineering/images/how-langchain4j-fits.png",
+    "language_code": "vi"
+  },
+  "mcp-architecture.b3156d787a4ceac9.webp": {
+    "original_hash": "6ef1f9751daa7566fae670d97f023c49",
+    "translation_date": "2026-01-16T11:06:57+00:00",
+    "source_file": "05-mcp/images/mcp-architecture.png",
+    "language_code": "vi"
+  },
+  "mcp-comparison.9129a881ecf10ff5.webp": {
+    "original_hash": "4b427a9d01ebc5577ab3510b651ecd65",
+    "translation_date": "2026-01-16T11:07:10+00:00",
+    "source_file": "05-mcp/images/mcp-comparison.png",
+    "language_code": "vi"
+  },
+  "mcp-ecosystem.2783c9cc5cfa07d2.webp": {
+    "original_hash": "c3c2fa38c726272000409053847af710",
+    "translation_date": "2026-02-27T17:25:51+00:00",
+    "source_file": "05-mcp/images/mcp-ecosystem.png",
+    "language_code": "vi"
+  },
+  "mcp-protocol-detail.01204e056f45308b.webp": {
+    "original_hash": "0afab46b80bd3fab8104c4fab2c7b36f",
+    "translation_date": "2026-02-27T17:25:20+00:00",
+    "source_file": "05-mcp/images/mcp-protocol-detail.png",
+    "language_code": "vi"
+  },
+  "memory-window.bbe67f597eadabb3.webp": {
+    "original_hash": "8eb08c9b5bad930339898c50d4493aeb",
+    "translation_date": "2026-01-16T10:59:35+00:00",
+    "source_file": "01-introduction/images/memory-window.png",
+    "language_code": "vi"
+  },
+  "mock-vs-real.3b8b1f85bfe6845e.webp": {
+    "original_hash": "c4d21b76782c744a70494ad7122fb470",
+    "translation_date": "2026-01-16T11:11:08+00:00",
+    "source_file": "docs/images/mock-vs-real.png",
+    "language_code": "vi"
+  },
+  "prompt-structure.a77763d63f4e2f89.webp": {
+    "original_hash": "a1360d83c12ebf0463605d609dc02866",
+    "translation_date": "2026-01-16T11:00:19+00:00",
+    "source_file": "02-prompt-engineering/images/prompt-structure.png",
+    "language_code": "vi"
+  },
+  "prompt-template-testing.b902758ddccc8dee.webp": {
+    "original_hash": "0567b073a2dc320b66d62ce105619b2d",
+    "translation_date": "2026-01-16T11:11:00+00:00",
+    "source_file": "docs/images/prompt-template-testing.png",
+    "language_code": "vi"
+  },
+  "prompt-templates.14bfc37d45f1a933.webp": {
+    "original_hash": "6936a9103f09c1445a435738e095d7e4",
+    "translation_date": "2026-02-16T11:59:30+00:00",
+    "source_file": "02-prompt-engineering/images/prompt-templates.png",
+    "language_code": "vi"
+  },
+  "rag-approaches.5b97fdcc626f1447.webp": {
+    "original_hash": "9d4d80986f9c8a9f77a0db584bad5cb9",
+    "translation_date": "2026-02-27T17:23:10+00:00",
+    "source_file": "03-rag/images/rag-approaches.png",
+    "language_code": "vi"
+  },
+  "rag-architecture.ccb53b71a6ce407f.webp": {
+    "original_hash": "a0fb0671e18478ad83b93ac8d818c944",
+    "translation_date": "2026-01-16T11:06:27+00:00",
+    "source_file": "03-rag/images/rag-architecture.png",
+    "language_code": "vi"
+  },
+  "rag-homepage.d90eb5ce1b3caa94.webp": {
+    "original_hash": "7a8a7dfe794e24fc00362e1cb6d33c70",
+    "translation_date": "2026-01-16T11:06:40+00:00",
+    "source_file": "03-rag/images/rag-homepage.png",
+    "language_code": "vi"
+  },
+  "rag-langchain4j-classes.bbf3aa9077ab443d.webp": {
+    "original_hash": "2aafb0fd34a7e8071ad20e72f82443f1",
+    "translation_date": "2026-02-27T17:22:42+00:00",
+    "source_file": "03-rag/images/rag-langchain4j-classes.png",
+    "language_code": "vi"
+  },
+  "rag-query-results.6d69fcec5397f355.webp": {
+    "original_hash": "2b1942d1e9da76a3d7fc90b0f970a1a5",
+    "translation_date": "2026-01-16T11:06:21+00:00",
+    "source_file": "03-rag/images/rag-query-results.png",
+    "language_code": "vi"
+  },
+  "rag-testing.ee7541b1e23934b1.webp": {
+    "original_hash": "34b9bdfdfaafb04fdcf1452cfd981205",
+    "translation_date": "2026-01-16T11:08:08+00:00",
+    "source_file": "docs/images/rag-testing.png",
+    "language_code": "vi"
+  },
+  "react-pattern-detail.96a5efeeb6dd2f61.webp": {
+    "original_hash": "e6993e152e49e7db98ea01803af60fc9",
+    "translation_date": "2026-02-27T17:26:53+00:00",
+    "source_file": "04-tools/images/react-pattern-detail.png",
+    "language_code": "vi"
+  },
+  "reasoning-control.5cf85f0fc1d0c1f3.webp": {
+    "original_hash": "d4304f2a6a40c441205e6b8c2928117a",
+    "translation_date": "2026-02-16T11:58:49+00:00",
+    "source_file": "02-prompt-engineering/images/reasoning-control.png",
+    "language_code": "vi"
+  },
+  "response-strategies.3d0cea19d096bdf9.webp": {
+    "original_hash": "76a77f4d1cf798450260b07baae18e69",
+    "translation_date": "2026-02-27T17:24:43+00:00",
+    "source_file": "05-mcp/images/response-strategies.png",
+    "language_code": "vi"
+  },
+  "role-based-prompting.a806e1a73de6e3a4.webp": {
+    "original_hash": "9730fe41b6c4ca19759bebdf7cc61058",
+    "translation_date": "2026-02-16T11:59:22+00:00",
+    "source_file": "02-prompt-engineering/images/role-based-prompting.png",
+    "language_code": "vi"
+  },
+  "self-reflection-cycle.6f71101ca0bd28cc.webp": {
+    "original_hash": "97d6b065eec9eec09baf1583f626668a",
+    "translation_date": "2026-01-16T11:01:21+00:00",
+    "source_file": "02-prompt-engineering/images/self-reflection-cycle.png",
+    "language_code": "vi"
+  },
+  "semantic-search.6b790f21c86b849d.webp": {
+    "original_hash": "f0eb379c40eba6392286cdfb305b1f14",
+    "translation_date": "2026-02-20T11:19:00+00:00",
+    "source_file": "03-rag/images/semantic-search.png",
+    "language_code": "vi"
+  },
+  "session-management.91ad819c6c89c400.webp": {
+    "original_hash": "84fce1dfa360d3ceb6741d82545a6375",
+    "translation_date": "2026-02-27T17:27:48+00:00",
+    "source_file": "04-tools/images/session-management.png",
+    "language_code": "vi"
+  },
+  "similarity-scores.b0716aa911abf7f0.webp": {
+    "original_hash": "b4c58ffa3578d82bab82eee7e7317104",
+    "translation_date": "2026-02-20T11:19:25+00:00",
+    "source_file": "03-rag/images/similarity-scores.png",
+    "language_code": "vi"
+  },
+  "simple-chat-stateless-demo.13aeb3978eab3234.webp": {
+    "original_hash": "aae414c18969e827e72583d90d7f77fc",
+    "translation_date": "2026-01-16T10:59:15+00:00",
+    "source_file": "01-introduction/images/simple-chat-stateless-demo.png",
+    "language_code": "vi"
+  },
+  "spring-boot-sequence.f83e3d485aa4a3c6.webp": {
+    "original_hash": "79a86ab27b38d69feb8b17f94af99288",
+    "translation_date": "2026-03-03T14:32:44+00:00",
+    "source_file": "04-tools/images/spring-boot-sequence.png",
+    "language_code": "vi"
+  },
+  "spring-boot-wiring.151321795988b04e.webp": {
+    "original_hash": "f4cfb40479536d71b6ae7c560650c317",
+    "translation_date": "2026-02-27T17:26:20+00:00",
+    "source_file": "04-tools/images/spring-boot-wiring.png",
+    "language_code": "vi"
+  },
+  "stateless-vs-stateful.cc4a4765e649c41a.webp": {
+    "original_hash": "1c9e89b85ad199860cd0ccee393f1b9a",
+    "translation_date": "2026-01-16T10:59:22+00:00",
+    "source_file": "01-introduction/images/stateless-vs-stateful.png",
+    "language_code": "vi"
+  },
+  "stdio-transport-flow.45eaff4af2d81db4.webp": {
+    "original_hash": "19c786e217cfd65e0ab4666cfa6d7728",
+    "translation_date": "2026-02-27T17:24:50+00:00",
+    "source_file": "05-mcp/images/stdio-transport-flow.png",
+    "language_code": "vi"
+  },
+  "step-by-step-pattern.a99ea4ca1c48578c.webp": {
+    "original_hash": "a416c911527ef0187827d12095d1c68f",
+    "translation_date": "2026-01-16T11:02:32+00:00",
+    "source_file": "02-prompt-engineering/images/step-by-step-pattern.png",
+    "language_code": "vi"
+  },
+  "structured-analysis-pattern.0af3b690b60cf2d6.webp": {
+    "original_hash": "13711f73af72aece4a6012d1f4ab193f",
+    "translation_date": "2026-01-16T11:02:26+00:00",
+    "source_file": "02-prompt-engineering/images/structured-analysis-pattern.png",
+    "language_code": "vi"
+  },
+  "supervisor-agent-pattern.06275a41ae006ac8.webp": {
+    "original_hash": "441974bc854e265760746b68c03fc00e",
+    "translation_date": "2026-02-27T17:24:23+00:00",
+    "source_file": "05-mcp/images/supervisor-agent-pattern.png",
+    "language_code": "vi"
+  },
+  "supervisor-agent-sequence.1aa389b3bef99956.webp": {
+    "original_hash": "511042a7c0e06d00aa2327536e2c61d0",
+    "translation_date": "2026-03-03T14:32:23+00:00",
+    "source_file": "05-mcp/images/supervisor-agent-sequence.png",
+    "language_code": "vi"
+  },
+  "task-execution-pattern.9da3967750ab5c1e.webp": {
+    "original_hash": "d7f2b703fc92b713e194e84643f5de00",
+    "translation_date": "2026-01-16T11:00:43+00:00",
+    "source_file": "02-prompt-engineering/images/task-execution-pattern.png",
+    "language_code": "vi"
+  },
+  "test-results.ea5c98d8f3642043.webp": {
+    "original_hash": "aad0ec0bcae78a02584a90284e917b43",
+    "translation_date": "2026-01-16T11:10:51+00:00",
+    "source_file": "docs/images/test-results.png",
+    "language_code": "vi"
+  },
+  "testing-pyramid.2dd1079a0481e53e.webp": {
+    "original_hash": "9a59439dbb6c10f949264b55fc698184",
+    "translation_date": "2026-01-16T11:11:13+00:00",
+    "source_file": "docs/images/testing-pyramid.png",
+    "language_code": "vi"
+  },
+  "token-explanation.c39760d8ec650181.webp": {
+    "original_hash": "62b4d2c1f7d29d1d27e429ecd836dc5d",
+    "translation_date": "2026-01-16T10:59:38+00:00",
+    "source_file": "01-introduction/images/token-explanation.png",
+    "language_code": "vi"
+  },
+  "tool-calling-flow.8601941b0ca041e6.webp": {
+    "original_hash": "1fc05f653fd9c04aa0220c1eba521e38",
+    "translation_date": "2026-02-27T17:26:42+00:00",
+    "source_file": "04-tools/images/tool-calling-flow.png",
+    "language_code": "vi"
+  },
+  "tool-calling-sequence.94802f406ca26278.webp": {
+    "original_hash": "4e132d8f4b1c5d7d67511ebb718784a6",
+    "translation_date": "2026-03-03T14:32:33+00:00",
+    "source_file": "04-tools/images/tool-calling-sequence.png",
+    "language_code": "vi"
+  },
+  "tool-chaining-example.538203e73d09dd82.webp": {
+    "original_hash": "6f3acee2ebc2549da7099f5f9c3bb82d",
+    "translation_date": "2026-02-27T17:26:00+00:00",
+    "source_file": "04-tools/images/tool-chaining-example.png",
+    "language_code": "vi"
+  },
+  "tool-definitions-anatomy.f6468546037cf28b.webp": {
+    "original_hash": "77e329e50148e0a7473e74dff11a0789",
+    "translation_date": "2026-02-27T17:26:11+00:00",
+    "source_file": "04-tools/images/tool-definitions-anatomy.png",
+    "language_code": "vi"
+  },
+  "tool-discovery.07760a8a301a7832.webp": {
+    "original_hash": "418d11cd2bbec18deaf6ed9940d7aeb2",
+    "translation_date": "2026-02-27T17:24:57+00:00",
+    "source_file": "05-mcp/images/tool-discovery.png",
+    "language_code": "vi"
+  },
+  "tool-ecosystem.aad3d74eaa14a44f.webp": {
+    "original_hash": "1717746f7934e04ee3ba64566a6e369a",
+    "translation_date": "2026-02-27T17:27:38+00:00",
+    "source_file": "04-tools/images/tool-ecosystem.png",
+    "language_code": "vi"
+  },
+  "tools-conversation-demo.89f2ce9676080f59.webp": {
+    "original_hash": "d2ecb36ff969aec004bcfe3cbcd014cf",
+    "translation_date": "2026-01-16T11:07:20+00:00",
+    "source_file": "04-tools/images/tools-conversation-demo.png",
+    "language_code": "vi"
+  },
+  "tools-homepage.4b4cd8b2717f9621.webp": {
+    "original_hash": "aaf5717979526f89a3fddab02bc8bc6d",
+    "translation_date": "2026-01-16T11:07:50+00:00",
+    "source_file": "04-tools/images/tools-homepage.png",
+    "language_code": "vi"
+  },
+  "tools-testing.3e1706817b0b3924.webp": {
+    "original_hash": "13e19021e2d62bffa0633cce6d50b433",
+    "translation_date": "2026-01-16T11:08:16+00:00",
+    "source_file": "docs/images/tools-testing.png",
+    "language_code": "vi"
+  },
+  "tools-vs-rag.ad55ce10d7e4da87.webp": {
+    "original_hash": "c739af535e62edc9acd4222439d54032",
+    "translation_date": "2026-02-27T17:27:27+00:00",
+    "source_file": "04-tools/images/tools-vs-rag.png",
+    "language_code": "vi"
+  },
+  "transport-mechanisms.2791ba7ee93cf020.webp": {
+    "original_hash": "4b946879b30cf2ad6e048289655e553e",
+    "translation_date": "2026-01-16T11:06:49+00:00",
+    "source_file": "05-mcp/images/transport-mechanisms.png",
+    "language_code": "vi"
+  },
+  "vector-embeddings.2ef7bdddac79a327.webp": {
+    "original_hash": "6baa1fbed2bb88d03fab227bb5d87516",
+    "translation_date": "2026-01-16T11:06:46+00:00",
+    "source_file": "03-rag/images/vector-embeddings.png",
+    "language_code": "vi"
+  },
+  "vscode-testing.f02dd5917289dced.webp": {
+    "original_hash": "dd983d81b3619c330151f2c23ccfcfdc",
+    "translation_date": "2026-01-16T11:08:28+00:00",
+    "source_file": "docs/images/vscode-testing.png",
+    "language_code": "vi"
+  },
+  "what-are-tools.724e468fc4de64da.webp": {
+    "original_hash": "9fd75969d07910e98f030c32f5723ae8",
+    "translation_date": "2026-02-27T17:27:02+00:00",
+    "source_file": "04-tools/images/what-are-tools.png",
+    "language_code": "vi"
+  },
+  "what-is-prompt-engineering.5c392a228a1f5823.webp": {
+    "original_hash": "a2a34056fee933abbf2509520d6956ad",
+    "translation_date": "2026-02-16T11:59:09+00:00",
+    "source_file": "02-prompt-engineering/images/what-is-prompt-engineering.png",
+    "language_code": "vi"
+  },
+  "what-is-rag.1f9005d44b07f2d8.webp": {
+    "original_hash": "f91153718c3752ef6c10ad8164a28ee6",
+    "translation_date": "2026-02-20T11:18:43+00:00",
+    "source_file": "03-rag/images/what-is-rag.png",
+    "language_code": "vi"
+  },
+  "what-youll-learn.c68269ac048503b2.webp": {
+    "original_hash": "8acd10180bef29930e6fd294d0644a3a",
+    "translation_date": "2026-02-16T11:59:03+00:00",
+    "source_file": "02-prompt-engineering/images/what-youll-learn.png",
+    "language_code": "vi"
+  },
+  "when-to-use-rag.1016223f6fea26bc.webp": {
+    "original_hash": "aedd382969b17c76ce0b5b823390fda6",
+    "translation_date": "2026-02-20T11:18:49+00:00",
+    "source_file": "03-rag/images/when-to-use-rag.png",
+    "language_code": "vi"
+  },
+  "when-to-use-tools.51d1592d9cbdae9c.webp": {
+    "original_hash": "8a0a6e714292ba5caf345f80946ab963",
+    "translation_date": "2026-02-27T17:27:14+00:00",
+    "source_file": "04-tools/images/when-to-use-tools.png",
+    "language_code": "vi"
+  },
+  "workflow-patterns.82b2cc5b0c5edb22.webp": {
+    "original_hash": "2a01ceb2596514bc2808a85cf52c1bc3",
+    "translation_date": "2026-02-27T17:24:32+00:00",
+    "source_file": "05-mcp/images/workflow-patterns.png",
+    "language_code": "vi"
+  },
+  "zero-shot-prompting.7abc24228be84e6c.webp": {
+    "original_hash": "4c24eb8b81e2c729fd3cc3d280c306d7",
+    "translation_date": "2026-02-16T11:58:54+00:00",
+    "source_file": "02-prompt-engineering/images/zero-shot-prompting.png",
+    "language_code": "vi"
+  }
+}
