@@ -32,6 +32,62 @@ integration plane, reliability plane, security plane, evaluation plane và opera
 (xem khung phân loại đầy đủ ở [Phần IX](#phần-ix-phụ-lục--khung-phân-loại-và-tiêu-chuẩn-viết-pattern)),
 thay vì liệt kê chúng như các lựa chọn ngang hàng.
 
+## Tài liệu chi tiết từng pattern
+
+Mỗi mục đánh số lớn dưới đây được viết chi tiết thành một file riêng trong
+[`patterns/`](./patterns/), theo tiêu chuẩn 20 tiêu chí ở [Phần IX](#phần-ix-phụ-lục--khung-phân-loại-và-tiêu-chuẩn-viết-pattern).
+
+**PHẦN I. Nền tảng kiến trúc**
+- [01. LLM App / Workflow / Agent / Multi-Agent](./patterns/01-llm-app-workflow-agent-multi-agent.md)
+
+**PHẦN II. RAG và Knowledge Architecture**
+- [02. Kiến trúc tổng thể RAG](./patterns/02-kien-truc-tong-the-rag.md)
+- [03. Data ingestion patterns](./patterns/03-data-ingestion-patterns.md)
+- [04. Parsing và document understanding](./patterns/04-parsing-document-understanding.md)
+- [05. Chunking patterns](./patterns/05-chunking-patterns.md)
+- [06. Retrieval patterns](./patterns/06-retrieval-patterns.md)
+- [07. BM25 và lexical search](./patterns/07-bm25-lexical-search.md)
+- [08. Vector index và vector database](./patterns/08-vector-index-database.md)
+- [09. Fusion, reranking, context construction](./patterns/09-fusion-reranking-context.md)
+
+**PHẦN III. Single-Agent Architecture**
+- [10. Reasoning và planning patterns](./patterns/10-reasoning-planning-patterns.md)
+- [11. Tool-use patterns](./patterns/11-tool-use-patterns.md)
+
+**PHẦN IV. Multi-Agent Architecture**
+- [12. Federated multi-agent](./patterns/12-federated-multi-agent.md)
+- [13. Market-based task allocation](./patterns/13-market-based-task-allocation.md)
+- [14. Contract-net pattern](./patterns/14-contract-net-pattern.md)
+- [15. Orchestrator-Worker / Map-reduce agents](./patterns/15-orchestrator-worker-map-reduce.md)
+- [16. Committee-of-experts](./patterns/16-committee-of-experts.md)
+- [17. Red-team and blue-team](./patterns/17-red-team-blue-team.md)
+- [18. Shared artifact workspace](./patterns/18-shared-artifact-workspace.md)
+- [19. Event-driven multi-agent](./patterns/19-event-driven-multi-agent.md)
+- [20. Choreography](./patterns/20-choreography.md)
+- [21. Hybrid orchestration](./patterns/21-hybrid-orchestration.md)
+
+**PHẦN V. Memory, State và Context Engineering**
+- [22. Memory patterns](./patterns/22-memory-patterns.md)
+- [23. State](./patterns/23-state.md)
+- [24. Context Engineering](./patterns/24-context-engineering.md)
+
+**PHẦN VI. MCP, A2A và Agent Interoperability**
+- [25. MCP](./patterns/25-mcp.md)
+- [26. A2A](./patterns/26-a2a.md)
+- [27. Agent Skills (SKILL.md)](./patterns/27-agent-skills.md)
+- [28. Agent Payments Protocol](./patterns/28-agent-payments-protocol.md)
+
+**PHẦN VII. Security, Reliability và Governance**
+- [29. Security patterns](./patterns/29-security-patterns.md)
+- [30. Reliability patterns](./patterns/30-reliability-patterns.md)
+
+**PHẦN VIII. Evaluation, Observability và Production Operations**
+- [31. RAG evaluation](./patterns/31-rag-evaluation.md)
+- [32. Agent evaluation](./patterns/32-agent-evaluation.md)
+- [33. Multi-agent evaluation](./patterns/33-multi-agent-evaluation.md)
+- [34. Observability](./patterns/34-observability.md)
+- [35. Production Operations](./patterns/35-production-operations.md)
+
 ---
 
 ## Mục lục
