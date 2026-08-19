@@ -4,10 +4,15 @@
 > đầu, không phải danh sách đóng**. Bản chuyên sâu mở rộng từ việc "mô tả pattern" thành một
 > **cẩm nang kiến trúc và triển khai production**, bao phủ dữ liệu, retrieval, reasoning, memory,
 > orchestration, protocol, security, fault tolerance, evaluation và vận hành.
+>
+> **Phiên bản này** đã (1) tách "Memory, State và Context Engineering" thành một phần riêng đúng
+> như đề cương gốc thay vì gộp vào Single-Agent Architecture, và (2) bổ sung các pattern mới xuất
+> hiện trong ngành 2025-2026 (context engineering, Agent Skills, giao thức thanh toán agentic,
+> late-interaction retrieval, production operations...) sau một vòng research riêng.
 
 ## Định hướng mở rộng tài liệu
 
-Thay vì chỉ có ba nhóm ban đầu, nội dung hoàn chỉnh được tổ chức thành 8 phần lớn:
+Nội dung hoàn chỉnh được tổ chức thành 8 phần lớn cộng 1 phụ lục:
 
 1. Nền tảng kiến trúc Generative AI
 2. RAG và Knowledge Architecture
@@ -17,11 +22,15 @@ Thay vì chỉ có ba nhóm ban đầu, nội dung hoàn chỉnh được tổ c
 6. MCP, A2A và Agent Interoperability
 7. Security, Reliability và Governance
 8. Evaluation, Observability và Production Operations
+9. Phụ lục — Khung phân loại và tiêu chuẩn viết pattern
 
 Các pattern không hoàn toàn tách biệt. Một hệ thống thực tế có thể đồng thời sử dụng Hybrid RAG,
-Parent-Child Retrieval, Planner-Executor, Supervisor, Shared State, MCP và A2A. Vì vậy, tài liệu
-phải chỉ rõ pattern nào thuộc **data plane, control plane, reasoning plane, integration plane và
-governance plane**, thay vì liệt kê chúng như các lựa chọn ngang hàng.
+Parent-Child Retrieval, Planner-Executor, Supervisor, Shared State, Context Compaction, Agent
+Skills, MCP và A2A. Vì vậy, tài liệu chỉ rõ pattern nào thuộc **data plane, knowledge plane,
+retrieval plane, reasoning plane, action plane, memory/context plane, coordination plane,
+integration plane, reliability plane, security plane, evaluation plane và operations plane**
+(xem khung phân loại đầy đủ ở [Phần IX](#phần-ix-phụ-lục--khung-phân-loại-và-tiêu-chuẩn-viết-pattern)),
+thay vì liệt kê chúng như các lựa chọn ngang hàng.
 
 ---
 
@@ -29,12 +38,13 @@ governance plane**, thay vì liệt kê chúng như các lựa chọn ngang hàn
 
 - [PHẦN I. NỀN TẢNG KIẾN TRÚC](#phần-i-nền-tảng-kiến-trúc)
 - [PHẦN II. RAG VÀ KNOWLEDGE ARCHITECTURE](#phần-ii-rag-và-knowledge-architecture)
-- [PHẦN III. AI AGENT PATTERNS MỞ RỘNG](#phần-iii-ai-agent-patterns-mở-rộng)
-- [PHẦN IV. MULTI-AGENT PATTERNS MỞ RỘNG](#phần-iv-multi-agent-patterns-mở-rộng)
-- [PHẦN V. MCP, A2A VÀ INTEROPERABILITY](#phần-v-mcp-a2a-và-interoperability)
-- [PHẦN VI. SECURITY VÀ GOVERNANCE](#phần-vi-security-và-governance)
-- [PHẦN VII. EVALUATION VÀ OBSERVABILITY](#phần-vii-evaluation-và-observability)
-- [PHẦN VIII. KHUNG PHÂN LOẠI CUỐI CÙNG](#phần-viii-khung-phân-loại-cuối-cùng)
+- [PHẦN III. SINGLE-AGENT ARCHITECTURE](#phần-iii-single-agent-architecture)
+- [PHẦN IV. MULTI-AGENT ARCHITECTURE](#phần-iv-multi-agent-architecture)
+- [PHẦN V. MEMORY, STATE VÀ CONTEXT ENGINEERING](#phần-v-memory-state-và-context-engineering)
+- [PHẦN VI. MCP, A2A VÀ AGENT INTEROPERABILITY](#phần-vi-mcp-a2a-và-agent-interoperability)
+- [PHẦN VII. SECURITY, RELIABILITY VÀ GOVERNANCE](#phần-vii-security-reliability-và-governance)
+- [PHẦN VIII. EVALUATION, OBSERVABILITY VÀ PRODUCTION OPERATIONS](#phần-viii-evaluation-observability-và-production-operations)
+- [PHẦN IX. PHỤ LỤC — KHUNG PHÂN LOẠI VÀ TIÊU CHUẨN VIẾT PATTERN](#phần-ix-phụ-lục--khung-phân-loại-và-tiêu-chuẩn-viết-pattern)
 
 ---
 
@@ -194,6 +204,15 @@ Groundedness and Citation Validation
 Microsoft mô tả RAG như một quá trình kỹ thuật gồm chuẩn bị dữ liệu, chunking, enrichment,
 embedding, index configuration, retrieval và evaluation. Việc chỉ tạo vector rồi tìm top-K mới
 bao phủ một phần nhỏ của kiến trúc RAG production.
+
+#### 2.3. Sự hội tụ về Agentic RAG (cập nhật 2025-2026)
+
+Ngành đang dịch chuyển rõ rệt từ RAG dạng pipeline cố định ("luôn retrieve rồi generate") sang
+**Agentic RAG**: hệ thống không chỉ retrieve một lần mà tự suy luận có cần retrieve không, retrieve
+cái gì, và khi nào nên dừng — LLM đóng vai trò một reasoning engine tự lập kế hoạch, thực thi và
+lặp lại hành động retrieval. Đây là kiến trúc đang chi phối phần lớn hệ thống RAG production hiện
+nay, và khớp với pattern **Adaptive retrieval** (mục 6.9) cùng **Agentic RAG** đã có trong roadmap
+học cơ bản của bộ tài liệu này.
 
 ### 3. Data ingestion patterns
 
@@ -568,6 +587,27 @@ Các RAG hiện đại đang dịch chuyển từ pipeline retrieval cố địn
 agentic, nơi query reformulation, source selection, context filtering và multi-hop evidence được
 điều khiển động.
 
+#### 6.11. Late-interaction retrieval (ColBERT-style) — *bổ sung*
+
+Thay vì nén cả document thành **một** vector duy nhất (single-vector embedding), late-interaction
+giữ lại embedding ở **cấp token** cho cả query và document, rồi tính độ khớp bằng cách so khớp
+token-với-token (thường qua phép "MaxSim") tại thời điểm truy vấn thay vì tại thời điểm index.
+
+```
+Query tokens   [q1] [q2] [q3]
+                 ╲    │    ╱
+Document tokens [d1] [d2] [d3] [d4] ...
+                 → MaxSim(qi, dj) cho từng qi, cộng lại thành điểm cuối
+```
+
+- **Ưu điểm**: giữ được nhiều thông tin ngữ cảnh hơn dense retrieval single-vector, khớp tinh hơn
+  với câu hỏi có nhiều thực thể/điều kiện.
+- **Nhược điểm**: chi phí lưu trữ và tính toán cao hơn (mỗi document lưu nhiều vector thay vì một),
+  cần thư viện/index chuyên dụng để scale (ColBERT, ColPali/ColQwen cho multimodal).
+- **Khi dùng**: corpus vừa/nhỏ cần độ chính xác cao, hoặc dùng như tầng rerank thứ hai sau khi
+  dense/hybrid retrieval đã thu hẹp candidate set — tương tự vai trò của cross-encoder reranking
+  (mục 9.3) nhưng giữ được nhiều tín hiệu token-level hơn.
+
 ### 7. BM25 và lexical search
 
 BM25 đánh giá tài liệu dựa trên:
@@ -736,9 +776,12 @@ model.
 
 ---
 
-## PHẦN III. AI AGENT PATTERNS MỞ RỘNG
+## PHẦN III. SINGLE-AGENT ARCHITECTURE
 
-Ngoài 10 pattern ban đầu, phần AI Agent nên bổ sung các nhóm sau.
+> Memory và Reliability đã được tách sang [Phần V](#phần-v-memory-state-và-context-engineering)
+> và [Phần VII](#phần-vii-security-reliability-và-governance) để đúng với đề cương 8 phần gốc.
+> Phần này chỉ giữ lại các pattern thuộc **reasoning plane** và **action plane** của một agent
+> đơn lẻ.
 
 ### 10. Reasoning và planning patterns
 
@@ -860,126 +903,38 @@ Execute
 Trong production, tool phải được đối xử như API: schema rõ ràng, validate input/output, timeout,
 permission, idempotency, audit và giới hạn tác động.
 
-### 12. Memory patterns
+#### 11.10. Mandate-based transaction (thanh toán agentic) — *bổ sung*
 
-#### 12.1. Working memory
+Khi tool thực hiện giao dịch có giá trị thật (mua hàng, chuyển tiền), agent không tự "quyết định
+và trả tiền" — nó tạo ra một **mandate** (uỷ quyền) có thể kiểm chứng, để bên thứ ba (merchant,
+payment network) xác minh độc lập user đã cho phép gì.
 
-State của task hiện tại:
+```
+User Intent
+    ↓
+Intent Mandate (agent được phép tìm/đề xuất gì)
+    ↓
+Agent chọn phương án
+    ↓
+Cart Mandate (nội dung giỏ hàng cụ thể, cần user xác nhận)
+    ↓
+Payment Mandate (uỷ quyền thanh toán, ký số)
+    ↓
+Payment Network xác minh mandate → Thực thi
+```
 
-- Plan
-- Tool results
-- Current step
-- Intermediate artifact
-- Errors
-
-#### 12.2. Conversation memory
-
-Message giữa user và agent trong session.
-
-#### 12.3. Summary memory
-
-Tóm tắt lịch sử để giảm token.
-
-#### 12.4. Semantic memory
-
-Lưu fact và knowledge tổng quát.
-
-#### 12.5. Episodic memory
-
-Lưu event hoặc task đã xảy ra:
-
-- Task
-- Action
-- Outcome
-- Feedback
-- Lesson
-
-#### 12.6. Procedural memory
-
-Lưu cách làm, rule, workflow hoặc reusable skill.
-
-#### 12.7. Entity memory
-
-Lưu thông tin theo user, customer, product, project hoặc organization.
-
-#### 12.8. Artifact memory
-
-Lưu file, report, code, query result và document được tạo trong quá trình làm việc.
-
-#### 12.9. Memory consolidation
-
-Nhiều memory ngắn được tổng hợp thành memory ổn định hơn.
-
-#### 12.10. Memory forgetting
-
-Xóa hoặc giảm trọng số memory theo:
-
-- Thời gian
-- Độ liên quan
-- Privacy policy
-- User request
-- Data retention
-- Contradiction với thông tin mới
-
-Memory không đồng nghĩa với vector database. Một kiến trúc tốt thường kết hợp state store,
-relational database, object storage, vector index và event log.
-
-### 13. Reliability patterns cho agent
-
-#### 13.1. Checkpoint and resume
-
-Lưu state sau bước quan trọng.
-
-#### 13.2. Retry with backoff
-
-Retry với giới hạn và exponential backoff.
-
-#### 13.3. Circuit breaker
-
-Tạm ngừng tool hoặc agent đang lỗi liên tục.
-
-#### 13.4. Timeout budget
-
-Mỗi task, step và tool có deadline riêng.
-
-#### 13.5. Dead-letter task
-
-Task thất bại được đưa vào hàng chờ để inspect hoặc xử lý lại.
-
-#### 13.6. Fallback model
-
-Nếu model chính timeout hoặc không đạt quality threshold, chuyển sang model khác.
-
-#### 13.7. Graceful degradation
-
-Nếu một nguồn dữ liệu hỏng, hệ thống trả kết quả từ nguồn còn lại và nêu giới hạn.
-
-#### 13.8. Deterministic state machine
-
-Dùng code kiểm soát transition quan trọng, chỉ dùng LLM cho quyết định ngữ nghĩa.
-
-#### 13.9. Termination guard
-
-Giới hạn:
-
-- Số vòng lặp
-- Token
-- Chi phí
-- Thời gian
-- Số tool call
-- Số lần handoff
-
-#### 13.10. Saga for long-running agent tasks
-
-Một task lớn được chia thành transaction nhỏ, mỗi transaction có compensating action.
+Đây là mô hình mà giao thức **Agent Payments Protocol (AP2)** của Google chuẩn hoá (9/2025): ba
+mandate — Intent, Cart, Payment — được ký dưới dạng W3C Verifiable Credential, tạo bằng chứng
+không thể chối bỏ về việc "user cho phép gì, agent chọn gì, và cái gì đã được charge". Pattern
+này áp dụng được ngay cả khi không dùng AP2, miễn là tool giao dịch tuân theo nguyên tắc: **tách
+uỷ quyền (mandate) khỏi thực thi (execution)**, và giao dịch giá trị cao luôn cần approval boundary
+(xem mục 26.8) trước khi mandate được ký.
 
 ---
 
-## PHẦN IV. MULTI-AGENT PATTERNS MỞ RỘNG
+## PHẦN IV. MULTI-AGENT ARCHITECTURE
 
-Ngoài 12 pattern ban đầu, phần này nên có thêm các pattern sau.
-
-### 14. Federated multi-agent
+### 12. Federated multi-agent
 
 Các agent thuộc nhiều domain hoặc hạ tầng khác nhau:
 
@@ -994,7 +949,7 @@ Enterprise Supervisor
 Mỗi agent giữ model, memory, tool và policy riêng. Microsoft mô tả local và remote agent
 execution như một mô hình liên bang, cần secure channel, traceability và supervisor coordination.
 
-### 15. Market-based task allocation
+### 13. Market-based task allocation
 
 Worker đưa ra bid dựa trên:
 
@@ -1006,7 +961,7 @@ Worker đưa ra bid dựa trên:
 
 Coordinator chọn worker có utility tốt nhất.
 
-### 16. Contract-net pattern
+### 14. Contract-net pattern
 
 ```
 Manager announces task
@@ -1020,32 +975,43 @@ Selected agent executes
 Manager validates result
 ```
 
-### 17. Map-reduce agents
+### 15. Orchestrator-Worker / Map-reduce agents
 
 ```
 Large Input
    ↓
-Map Agents
+Lead Agent (Orchestrator) — phân tích, lập chiến lược
+   ↓
+Worker Agents (song song) — mỗi worker khám phá 1 hướng độc lập, context riêng
    ↓
 Partial Results
    ↓
-Reduce Agent
+Synthesis / Reduce Agent — tổng hợp, kèm 1 pass citation riêng
    ↓
 Final Result
 ```
 
-### 18. Committee-of-experts
+**Ví dụ thực tế đã được ghi nhận (2025):** hệ thống "Research" của Anthropic dùng đúng pattern
+này — lead agent lập chiến lược rồi spawn 3-5 subagent chuyên biệt chạy song song, mỗi subagent
+có context window, tool và hướng khám phá riêng; kết quả được tổng hợp qua một bước synthesis
+tách biệt cộng một pass kiểm tra citation. Cách này vượt trội hơn agent đơn ~90% trên các câu hỏi
+nghiên cứu dạng "breadth-first" (cần khám phá nhiều nhánh độc lập, tổng thông tin vượt quá một
+context window), nhưng đổi lại chi phí token cao hơn đáng kể (~15 lần so với 1 lượt chat thông
+thường) — cần cân nhắc rõ trade-off chi phí/chất lượng trước khi áp dụng cho use case có volume
+lớn.
+
+### 16. Committee-of-experts
 
 Router chọn một nhóm expert thay vì chỉ một agent. Judge hoặc synthesizer tổng hợp output.
 
-### 19. Red-team and blue-team
+### 17. Red-team and blue-team
 
 - Blue agent tạo giải pháp.
 - Red agent tìm lỗi, rủi ro hoặc attack path.
 - Judge xác định vấn đề nào hợp lệ.
 - Blue agent sửa kết quả.
 
-### 20. Shared artifact workspace
+### 18. Shared artifact workspace
 
 Agent cộng tác qua file và artifact thay vì chỉ message:
 
@@ -1058,7 +1024,7 @@ Shared Workspace
  └─ review-comments.json
 ```
 
-### 21. Event-driven multi-agent
+### 19. Event-driven multi-agent
 
 Agent subscribe event:
 
@@ -1074,11 +1040,11 @@ Indexing Agent
 
 Pattern này giảm coupling nhưng cần correlation ID, idempotency và event schema governance.
 
-### 22. Choreography
+### 20. Choreography
 
 Không có orchestrator trung tâm. Mỗi agent phản ứng với event và phát event tiếp theo.
 
-### 23. Hybrid orchestration
+### 21. Hybrid orchestration
 
 Kết hợp:
 
@@ -1093,9 +1059,184 @@ agent types, thay vì cố dùng một pattern duy nhất cho toàn bộ hệ th
 
 ---
 
-## PHẦN V. MCP, A2A VÀ INTEROPERABILITY
+## PHẦN V. MEMORY, STATE VÀ CONTEXT ENGINEERING
 
-### 24. MCP
+> Phần này trước đây bị gộp lẫn vào Single-Agent Architecture. Tách riêng vì memory, state và
+> context là ba khái niệm liên quan nhưng không đồng nhất: **memory** là *cái gì được nhớ lại*,
+> **state** là *hệ thống lưu nó ở đâu và bằng công nghệ gì*, còn **context engineering** là *cách
+> chọn, nén và sắp xếp thông tin đưa vào context window tại một thời điểm cụ thể*.
+
+### 22. Memory patterns
+
+#### 22.1. Working memory
+
+State của task hiện tại:
+
+- Plan
+- Tool results
+- Current step
+- Intermediate artifact
+- Errors
+
+#### 22.2. Conversation memory
+
+Message giữa user và agent trong session.
+
+#### 22.3. Summary memory
+
+Tóm tắt lịch sử để giảm token.
+
+#### 22.4. Semantic memory
+
+Lưu fact và knowledge tổng quát.
+
+#### 22.5. Episodic memory
+
+Lưu event hoặc task đã xảy ra:
+
+- Task
+- Action
+- Outcome
+- Feedback
+- Lesson
+
+#### 22.6. Procedural memory
+
+Lưu cách làm, rule, workflow hoặc reusable skill.
+
+#### 22.7. Entity memory
+
+Lưu thông tin theo user, customer, product, project hoặc organization.
+
+#### 22.8. Artifact memory
+
+Lưu file, report, code, query result và document được tạo trong quá trình làm việc.
+
+#### 22.9. Memory consolidation
+
+Nhiều memory ngắn được tổng hợp thành memory ổn định hơn.
+
+#### 22.10. Memory forgetting
+
+Xóa hoặc giảm trọng số memory theo:
+
+- Thời gian
+- Độ liên quan
+- Privacy policy
+- User request
+- Data retention
+- Contradiction với thông tin mới
+
+Memory không đồng nghĩa với vector database. Một kiến trúc tốt thường kết hợp state store,
+relational database, object storage, vector index và event log.
+
+### 23. State — *bổ sung*
+
+State là hạ tầng lưu trữ đằng sau memory và tiến trình agent, cần được thiết kế tách biệt khỏi
+"trí nhớ" theo nghĩa nội dung.
+
+#### 23.1. Session state vs durable state
+
+- **Session state**: sống trong một phiên tương tác, có thể mất khi process restart (working
+  memory, biến tạm trong 1 lượt chạy).
+- **Durable state**: phải sống sót qua restart, deploy, hoặc failover — cần persist vào database
+  hoặc state store bên ngoài process của agent.
+
+#### 23.2. State store patterns
+
+- **Key-value / document store**: lưu state theo `task_id`/`session_id`, đơn giản, dễ scale
+  ngang.
+- **Event-sourced state**: lưu state dưới dạng chuỗi sự kiện thay vì snapshot; state hiện tại =
+  replay toàn bộ event. Cho phép audit trail đầy đủ và time-travel debugging, đổi lại phức tạp
+  hơn khi cần đọc nhanh.
+- **Graph-based state**: dùng cho agent có nhiều bước phụ thuộc phi tuyến (branching, merge) —
+  phù hợp với framework theo mô hình state machine dạng đồ thị (ví dụ LangGraph), nơi mỗi node
+  đọc/ghi vào một state object dùng chung.
+
+#### 23.3. State versioning và migration
+
+State schema của agent (cấu trúc plan, tool result, metadata) sẽ thay đổi qua thời gian khi agent
+được nâng cấp. Cần:
+
+- Gắn `schema_version` vào mỗi state record
+- Có migration path rõ ràng khi đọc state cũ bằng code mới
+- Không để một agent version mới đọc nhầm state được ghi bởi version cũ mà không kiểm tra tương
+  thích
+
+#### 23.4. State và checkpoint (liên hệ Phần VII)
+
+State store là nơi checkpoint (mục 30.1) thực sự được ghi vào. Checkpoint/resume, retry, và
+saga pattern (Phần VII) đều phụ thuộc trực tiếp vào việc state được thiết kế đúng — nếu state
+không đủ chi tiết để tái tạo lại điểm dừng, agent không thể resume chính xác.
+
+### 24. Context Engineering — *bổ sung*
+
+Context engineering là tập kỹ thuật quản lý **những gì thực sự nằm trong context window** tại
+mỗi lượt gọi model — phân biệt với memory (nội dung được lưu lâu dài) và với prompt engineering
+(cách viết một prompt tĩnh). Ba kỹ thuật cốt lõi, theo hướng dẫn kỹ thuật của Anthropic:
+
+#### 24.1. Compaction
+
+Khi hội thoại/task gần chạm giới hạn context, hệ thống tóm tắt toàn bộ nội dung đã có, rồi khởi
+tạo lại context mới chỉ chứa bản tóm tắt đó thay vì toàn bộ lịch sử:
+
+```
+Context gần đầy
+    ↓
+Summarize toàn bộ conversation/task hiện tại
+    ↓
+Khởi tạo context mới = summary + (các thông tin bắt buộc phải giữ nguyên, vd. system prompt)
+    ↓
+Tiếp tục task với context đã "nén"
+```
+
+Phù hợp nhất với task cần nhiều lượt qua lại liên tục (hội thoại dài, task tương tác cao).
+
+#### 24.2. Structured note-taking (bộ nhớ ngoài context)
+
+Agent chủ động ghi chú ra ngoài context window (file, scratchpad, task list persistent) thay vì
+giữ toàn bộ thông tin trong context. Khi cần, agent đọc lại note thay vì phụ thuộc vào context đã
+bị compact hoặc cắt bớt. Phù hợp với task lặp lại nhiều vòng, có các mốc rõ ràng (ví dụ: các bước
+trong một dự án phát triển phần mềm nhiều giai đoạn).
+
+#### 24.3. Sub-agent context isolation
+
+Khi một subtask được giao cho subagent, subagent đó chạy trong **context window riêng**, tách
+biệt hoàn toàn khỏi context của orchestrator. Orchestrator chỉ nhận **kết quả cuối cùng**, không
+nhận toàn bộ reasoning/tool-call trung gian của subagent:
+
+```
+Orchestrator context
+ └─ Subagent A: context riêng (không lộ về Orchestrator)
+     → Chỉ trả kết quả cuối
+ └─ Subagent B: context riêng
+     → Chỉ trả kết quả cuối
+```
+
+Nhờ vậy context của orchestrator **không phình theo độ phức tạp của task** — đây là lý do cốt lõi
+khiến pattern multi-agent (mục 15, 22.1) mở rộng tốt hơn agent đơn khi task đủ phức tạp.
+
+#### 24.4. Just-in-time context loading
+
+Thay vì nạp toàn bộ tài liệu/tool schema vào context ngay từ đầu, agent chỉ load thông tin **khi
+thực sự cần** (ví dụ: chỉ đọc nội dung file khi chuẩn bị chỉnh sửa file đó, thay vì đọc trước toàn
+bộ codebase). Giảm token lãng phí và giảm nhiễu khiến model mất tập trung vào phần liên quan.
+
+#### 24.5. Context rot (failure mode cần theo dõi)
+
+**Context rot** là hiện tượng chất lượng phản hồi của agent suy giảm khi context đã dài ra —
+ngay cả khi tổng số token *vẫn còn trong giới hạn cửa sổ context* của model. Đây không phải lỗi
+do vượt giới hạn cứng, mà là suy giảm khả năng "chú ý" đúng phần liên quan khi lượng thông tin
+không liên quan tích luỹ quá nhiều. Cách giảm thiểu: áp dụng compaction/note-taking chủ động
+*trước khi* context quá dài (không đợi đến khi chạm limit), và ưu tiên just-in-time loading thay
+vì nạp trước toàn bộ. Nên bổ sung theo dõi độ dài context và chất lượng output như một chỉ số
+observability riêng (liên hệ mục 34).
+
+---
+
+## PHẦN VI. MCP, A2A VÀ AGENT INTEROPERABILITY
+
+### 25. MCP
 
 MCP chuẩn hóa kết nối:
 
@@ -1129,7 +1270,7 @@ extensions cho tác vụ dài hạn.
 - MCP-fronted legacy API
 - MCP server wrapping an existing agent
 
-### 25. A2A
+### 26. A2A
 
 A2A chuẩn hóa agent-to-agent collaboration:
 
@@ -1173,13 +1314,66 @@ MCP: Agent → Tool / Data
 Microsoft khuyến nghị dùng native orchestration cho internal subagent flow, MCP cho tool và data
 access, và A2A cho cross-platform agent interaction có published capability và task contract.
 
+### 27. Agent Skills (SKILL.md) — *bổ sung, chuẩn mới 2025*
+
+Bên cạnh MCP (agent→tool) và A2A (agent→agent), ngành đã hình thành thêm một chuẩn thứ ba giải
+quyết một vấn đề khác: **đóng gói và chia sẻ năng lực** (capability) mà một agent có thể "học"
+để dùng lại, không cần chạy như một service riêng (khác MCP server) và không cần là một agent độc
+lập (khác A2A).
+
+```
+Agent Host
+   ↓
+Đọc SKILL.md (YAML frontmatter: name, description... + nội dung hướng dẫn dạng Markdown)
+   ↓
+Agent "biết" cách thực hiện một năng lực cụ thể mà không cần tool call ra ngoài
+```
+
+- Do Anthropic công bố như một open standard (12/2025), quản lý bởi Agentic AI Foundation.
+- Một file `SKILL.md` chỉ bắt buộc 2 trường: `name` và `description`; phần còn lại là hướng dẫn
+  dạng tự nhiên cho agent.
+- Được nhiều nền tảng khác nhau hỗ trợ (Claude, các agent coding tool phổ biến khác...), nghĩa là
+  một skill viết một lần có thể tái sử dụng qua nhiều agent host khác nhau — tương tự vai trò
+  "thư viện kỹ năng dùng chung" hơn là "kết nối dịch vụ" (MCP) hay "gọi agent khác" (A2A).
+
+**So sánh 3 chuẩn interoperability**
+
+| Chuẩn | Giải quyết | Đơn vị trao đổi |
+|---|---|---|
+| MCP | Agent → Tool/Data | Tool call, resource, prompt |
+| A2A | Agent → Agent | Task, artifact, message |
+| Agent Skills | Agent → Capability tái sử dụng | 1 file hướng dẫn (SKILL.md) |
+
+### 28. Agent Payments Protocol và giao thức thanh toán agentic — *bổ sung*
+
+Khi agent cần thực hiện giao dịch tài chính thay mặt user (mua hàng, đặt dịch vụ, chuyển tiền),
+cần một tầng chuẩn hoá nằm **giữa** tầng agent (MCP/A2A) và mạng thanh toán, để đảm bảo mọi bên có
+thể xác minh độc lập "ai cho phép cái gì".
+
+```
+Tầng Agent (MCP / A2A / Agent Skills)
+        ↓
+Tầng Mandate — AP2 (Intent / Cart / Payment, ký dạng Verifiable Credential)
+        ↓
+Mạng thanh toán (thẻ, chuyển khoản, real-time payment, stablecoin...)
+```
+
+- **AP2 (Agent Payments Protocol)**: Google công bố 9/2025, không ràng buộc vào một phương thức
+  thanh toán cụ thể (card, ACH, real-time payment, stablecoin).
+- Các chuẩn liên quan trong cùng hệ sinh thái: **ACP** (checkout thương mại điện tử), **x402** và
+  **MPP** (thanh toán máy-với-máy). Trong thực tế các chuẩn này thường được dùng bổ sung cho nhau
+  chứ không loại trừ lẫn nhau.
+- Về mặt kiến trúc, pattern quan trọng nhất cần áp dụng — bất kể có dùng đúng AP2 hay không — là
+  **Mandate-based transaction** đã mô tả ở mục 11.10: tách rõ *uỷ quyền có thể kiểm chứng* khỏi
+  *hành động thực thi*, và luôn đặt approval boundary (mục 26.8) trước giao dịch giá trị cao.
+
 ---
 
-## PHẦN VI. SECURITY VÀ GOVERNANCE
+## PHẦN VII. SECURITY, RELIABILITY VÀ GOVERNANCE
 
-### 26. Security patterns cần bổ sung
+### 29. Security patterns
 
-#### 26.1. Identity propagation
+#### 29.1. Identity propagation
 
 User identity phải được truyền qua:
 
@@ -1199,15 +1393,15 @@ Data Source
 
 Không được để agent dùng service account có quyền quá rộng thay cho user.
 
-#### 26.2. Least-privilege agent
+#### 29.2. Least-privilege agent
 
 Mỗi agent chỉ có access scope cần thiết.
 
-#### 26.3. Capability-based authorization
+#### 29.3. Capability-based authorization
 
 Quyền thực hiện gắn với capability cụ thể, không chỉ gắn với endpoint.
 
-#### 26.4. Input guardrail
+#### 29.4. Input guardrail
 
 Kiểm tra:
 
@@ -1218,7 +1412,7 @@ Kiểm tra:
 - Invalid schema
 - Unsupported file type
 
-#### 26.5. Retrieval guardrail
+#### 29.5. Retrieval guardrail
 
 Kiểm tra:
 
@@ -1230,7 +1424,7 @@ Kiểm tra:
 - Source trust
 - Version validity
 
-#### 26.6. Tool guardrail
+#### 29.6. Tool guardrail
 
 Kiểm tra:
 
@@ -1241,7 +1435,7 @@ Kiểm tra:
 - Transaction amount
 - Target environment
 
-#### 26.7. Output guardrail
+#### 29.7. Output guardrail
 
 Kiểm tra:
 
@@ -1252,11 +1446,11 @@ Kiểm tra:
 - Secret
 - PII
 
-#### 26.8. Approval boundary
+#### 29.8. Approval boundary
 
 Các action không thể đảo ngược cần approval.
 
-#### 26.9. Agent admission control
+#### 29.9. Agent admission control
 
 Agent mới phải qua:
 
@@ -1269,11 +1463,96 @@ Agent mới phải qua:
 Dynamic Agent Registry không chỉ lưu endpoint. Registry cần validation, security requirement và
 evaluation trước khi agent được phép tham gia hệ thống.
 
+#### 29.10. Memory và context poisoning — *bổ sung*
+
+Khác với retrieval guardrail (mục 29.5, vốn xử lý tài liệu bị "đầu độc" nạp vào khi truy xuất),
+memory/context poisoning là rủi ro nội dung độc hại bị **ghi vào chính memory dài hạn của agent**
+(episodic, semantic, entity memory — mục 22.4-22.7) qua một tương tác trước đó, rồi ảnh hưởng đến
+quyết định của agent ở các phiên sau — kể cả khi nguồn gây hại ban đầu đã không còn trong context
+hiện tại. Cần:
+
+- Validate nội dung trước khi ghi vào memory dài hạn (không tự động lưu nguyên văn output chưa
+  qua kiểm tra)
+- Gắn nguồn gốc (provenance) cho mỗi memory record để biết nó đến từ đâu, có đáng tin không
+- Có cơ chế memory forgetting (mục 22.10) áp dụng được cho cả nội dung bị nghi ngờ là độc hại,
+  không chỉ theo thời gian/độ liên quan
+
+#### 29.11. Excessive agency — ba nguyên nhân gốc — *bổ sung*
+
+Khung an ninh cho ứng dụng agentic (OWASP, 2026) tách "quyền tự chủ quá mức" thành ba nguyên nhân
+gốc riêng biệt, hữu ích để audit hệ thống một cách có hệ thống thay vì chỉ nói chung chung "agent
+có quá nhiều quyền":
+
+- **Excessive functionality**: agent có thể gọi tới các tool/hành động vượt ngoài phạm vi task
+  được giao (liên hệ mục 29.3 Capability-based authorization).
+- **Excessive permissions**: tool mà agent gọi có quyền rộng hơn mức cần thiết cho chính tool đó
+  (liên hệ mục 29.2 Least-privilege agent).
+- **Excessive autonomy**: hành động có tác động lớn được thực thi mà không qua điểm dừng cần con
+  người phê duyệt (liên hệ mục 29.8 Approval boundary, và mục 11.10 Mandate-based transaction).
+
+### 30. Reliability patterns cho agent
+
+> Chuyển từ Single-Agent Architecture sang đây để khớp đúng tiêu đề "Security, **Reliability** và
+> Governance" trong đề cương gốc.
+
+#### 30.1. Checkpoint and resume
+
+Lưu state sau bước quan trọng (liên hệ mục 23.4).
+
+#### 30.2. Retry with backoff
+
+Retry với giới hạn và exponential backoff.
+
+#### 30.3. Circuit breaker
+
+Tạm ngừng tool hoặc agent đang lỗi liên tục.
+
+#### 30.4. Timeout budget
+
+Mỗi task, step và tool có deadline riêng.
+
+#### 30.5. Dead-letter task
+
+Task thất bại được đưa vào hàng chờ để inspect hoặc xử lý lại.
+
+#### 30.6. Fallback model
+
+Nếu model chính timeout hoặc không đạt quality threshold, chuyển sang model khác.
+
+#### 30.7. Graceful degradation
+
+Nếu một nguồn dữ liệu hỏng, hệ thống trả kết quả từ nguồn còn lại và nêu giới hạn.
+
+#### 30.8. Deterministic state machine
+
+Dùng code kiểm soát transition quan trọng, chỉ dùng LLM cho quyết định ngữ nghĩa.
+
+#### 30.9. Termination guard
+
+Giới hạn:
+
+- Số vòng lặp
+- Token
+- Chi phí
+- Thời gian
+- Số tool call
+- Số lần handoff
+
+#### 30.10. Saga for long-running agent tasks
+
+Một task lớn được chia thành transaction nhỏ, mỗi transaction có compensating action.
+
+#### 30.11. Context rot mitigation — *bổ sung, liên hệ mục 24.5*
+
+Đặt context rot (mục 24.5) như một failure mode chính thức cần termination guard/observability
+theo dõi: agent chạy càng lâu, càng cần chủ động compact/note-taking (mục 24.1-24.2) thay vì để
+context tự phình đến giới hạn cứng rồi mới xử lý.
+
 ---
 
-## PHẦN VII. EVALUATION VÀ OBSERVABILITY
+## PHẦN VIII. EVALUATION, OBSERVABILITY VÀ PRODUCTION OPERATIONS
 
-### 27. RAG evaluation
+### 31. RAG evaluation
 
 **Retrieval**
 
@@ -1302,7 +1581,7 @@ evaluation trước khi agent được phép tham gia hệ thống.
 - Abstention quality
 - Security leakage
 
-### 28. Agent evaluation
+### 32. Agent evaluation
 
 Không chỉ đánh giá final answer. Phải đánh giá cả trajectory:
 
@@ -1314,7 +1593,17 @@ Không chỉ đánh giá final answer. Phải đánh giá cả trajectory:
 - Có phục hồi sau lỗi không
 - Có tuân thủ policy không
 
-### 29. Multi-agent evaluation
+**Agent-as-a-Judge — *bổ sung*.** Khác với LLM-as-judge truyền thống (chỉ chấm output cuối), cách
+tiếp cận Agent-as-a-Judge dùng một hệ thống agentic để đánh giá — có khả năng multi-step reasoning
+và quan sát cả quá trình, không chỉ kết quả — nhờ đó đánh giá được cả *cách* agent đi tới câu trả
+lời, không chỉ *câu trả lời cuối*. Một số bộ benchmark public gần đây theo hướng đánh giá
+trajectory này gồm AgentRewardBench (chấm khả năng đánh giá plan/thực thi), TRACE (đánh giá dựa
+trên evidence bank), và TRAJECT-Bench (đánh giá chi tiết việc dùng tool). Khi tự xây eval nội bộ,
+nên tách rõ 2 lớp: (1) rubric chấm từng bước (tool đúng/sai, tham số đúng/sai), và (2) judge chấm
+toàn trajectory để bắt các lỗi chỉ lộ ra khi nhìn tổng thể (ví dụ: mỗi bước đều hợp lý nhưng chiến
+lược tổng thể sai).
+
+### 33. Multi-agent evaluation
 
 Đánh giá thêm:
 
@@ -1328,7 +1617,15 @@ Không chỉ đánh giá final answer. Phải đánh giá cả trajectory:
 - Termination rate
 - End-to-end trace completeness
 
-### 30. Observability
+**Đánh giá 3 tầng — *bổ sung*.** Một cách tiếp cận hữu ích cho multi-agent là tách eval thành 3
+tầng độc lập thay vì chỉ chấm 1 điểm số cuối: (1) đánh giá độc lập từng agent con (agent đó có
+làm đúng phần việc của mình không, tách biệt khỏi phần còn lại của hệ thống), (2) đánh giá chất
+lượng phối hợp (handoff, delegation, tổng hợp kết quả giữa các agent có đúng không), và (3) đánh
+giá kết quả toàn hệ thống (task cuối cùng có thành công không). Cách tách này giúp định vị lỗi
+nằm ở agent con, ở khâu phối hợp, hay ở outcome cuối — thay vì chỉ biết "hệ thống sai" mà không
+biết sai ở đâu.
+
+### 34. Observability
 
 Mỗi request cần trace:
 
@@ -1343,6 +1640,7 @@ Trace
  ├─ Agent Span
  │   ├─ Planning Span
  │   ├─ Tool Span
+ │   ├─ Context Span (độ dài context, số lần compaction — liên hệ mục 24)
  │   └─ Evaluation Span
  └─ Generation Span
 ```
@@ -1351,9 +1649,54 @@ Evaluation trả lời "hệ thống có tốt không", còn observability trả
 ở đâu và tại sao". Production RAG cần tách span retrieval khỏi generation, lưu prompt/model/index
 version và liên kết quality score ngược về từng trace.
 
+### 35. Production Operations — *bổ sung*
+
+Phần vận hành production trước đây chưa có nội dung riêng dù đã được đặt tên trong đề cương gốc.
+
+#### 35.1. Caching nhiều tầng
+
+Production stack hiện đại thường xếp chồng 3 loại cache, mỗi loại giải quyết một vấn đề khác
+nhau:
+
+```
+Request
+  ↓
+1. Exact-match cache — cùng input y hệt → trả thẳng response đã lưu
+  ↓ (miss)
+2. Semantic cache — input khác chữ nhưng cùng ý nghĩa (so bằng embedding) → trả response gần nhất
+  ↓ (miss)
+3. Prompt/prefix cache — phần đầu prompt (system prompt, context tĩnh) không đổi → tái dùng phần
+   tính toán đã cache ở phía provider, chỉ tính phần mới
+  ↓ (miss hoàn toàn)
+Gọi model đầy đủ
+```
+
+- **Prompt/prefix caching**: tái sử dụng phần tính toán (KV-cache) cho đoạn đầu prompt không đổi
+  giữa các lần gọi — hiệu quả nhất khi system prompt/tool schema/context nền tảng dài và lặp lại.
+- **Semantic caching**: dùng embedding để phát hiện câu hỏi *khác chữ nhưng cùng ý*, bỏ qua hẳn
+  lệnh gọi model nếu đã có câu trả lời tương tự đủ tin cậy — cần threshold similarity đủ chặt để
+  tránh trả lời sai ngữ cảnh.
+- Hai loại cache trên **giải quyết vấn đề khác nhau** (một giảm chi phí tính toán, một giảm hẳn
+  số lệnh gọi) nên thường được dùng **cùng lúc**, không thay thế nhau.
+
+#### 35.2. Cost governance
+
+- Model routing (câu đơn giản → model rẻ, câu phức tạp → model mạnh — liên hệ roadmap LLMOps cơ
+  bản)
+- Theo dõi cost theo từng trace (mục 34), không chỉ theo tổng hoá đơn cuối tháng
+- Đặt budget/alert ở cấp tenant, agent, hoặc task type để phát hiện sớm chi phí bất thường
+
+#### 35.3. Deployment và versioning
+
+- Version hoá đồng thời: prompt, model, index (embedding model đổi → phải re-index), và schema
+  tool — bốn thứ này thường lệch pha nhau nếu không quản lý tập trung
+- Rollout dần (canary/shadow traffic) khi đổi model hoặc đổi prompt production, đo lại toàn bộ
+  evaluation suite (Phần VIII) trước khi rollout 100%
+- Rollback plan rõ ràng khi một bản deploy mới làm giảm chất lượng theo eval hoặc observability
+
 ---
 
-## PHẦN VIII. KHUNG PHÂN LOẠI CUỐI CÙNG
+## PHẦN IX. PHỤ LỤC — KHUNG PHÂN LOẠI VÀ TIÊU CHUẨN VIẾT PATTERN
 
 Một pattern catalog hoàn chỉnh nên phân loại theo layer như sau:
 
@@ -1361,16 +1704,16 @@ Một pattern catalog hoàn chỉnh nên phân loại theo layer như sau:
 |---|---|
 | Data plane | Ingestion, parsing, chunking, enrichment, versioning |
 | Knowledge plane | Lexical, vector, graph, structured knowledge |
-| Retrieval plane | Hybrid, multi-query, multi-hop, reranking, compression |
+| Retrieval plane | Hybrid, multi-query, multi-hop, reranking, late-interaction, compression |
 | Reasoning plane | ReAct, planning, reflection, evaluator |
-| Action plane | Tool use, sandbox, transaction, compensation |
-| Memory plane | Working, semantic, episodic, procedural, artifact |
-| Coordination plane | Supervisor, handoff, swarm, pipeline, blackboard |
-| Integration plane | MCP, A2A, registry, gateway |
-| Reliability plane | Checkpoint, retry, timeout, circuit breaker, saga |
-| Security plane | Identity, ACL, guardrails, approval, audit |
+| Action plane | Tool use, sandbox, transaction, mandate, compensation |
+| Memory/Context plane | Working, semantic, episodic, procedural, artifact, state, context engineering |
+| Coordination plane | Supervisor, handoff, swarm, pipeline, blackboard, orchestrator-worker |
+| Integration plane | MCP, A2A, Agent Skills, payment mandate, registry, gateway |
+| Reliability plane | Checkpoint, retry, timeout, circuit breaker, saga, context-rot mitigation |
+| Security plane | Identity, ACL, guardrails, approval, audit, memory poisoning defense |
 | Evaluation plane | Retrieval, answer, trajectory, multi-agent evaluation |
-| Operations plane | Tracing, metrics, cost, deployment, versioning |
+| Operations plane | Tracing, metrics, cost, caching, deployment, versioning |
 
 ### Tiêu chí viết chi tiết cho từng pattern
 
@@ -1404,9 +1747,23 @@ citation, evaluation và tuning. Tương tự, phần Supervisor phải bao ph�
 registry, shared state, context isolation, timeout, retry, delegation contract, loop prevention,
 MCP/A2A integration, tracing và failure recovery.
 
-### Cải tiến chính
+### Cải tiến chính (đã áp dụng ở phiên bản này)
+
+1. Tách **Memory, State và Context Engineering** thành Phần V riêng thay vì gộp vào Single-Agent
+   Architecture, đúng như đề cương 8-phần gốc.
+2. Chuyển **Reliability patterns** sang Phần VII để khớp tiêu đề "Security, Reliability và
+   Governance".
+3. Bổ sung **Production Operations** (Phần VIII, mục 35) — nội dung được đặt tên trong đề cương
+   gốc nhưng trước đó chưa có nội dung thực tế.
+4. Bổ sung các pattern/khái niệm mới ghi nhận trong ngành 2025-2026: Context Engineering (compaction,
+   structured note-taking, sub-agent isolation, context rot), Orchestrator-Worker case study,
+   Agent Skills (SKILL.md), Agent Payments Protocol / mandate-based transaction, late-interaction
+   retrieval, Agent-as-a-Judge và đánh giá 3 tầng cho multi-agent, memory/context poisoning, và
+   phân loại 3 nguyên nhân gốc của excessive agency.
+5. Đồng bộ lại khung phân loại plane ở Phụ lục cho khớp với thuật ngữ dùng xuyên suốt tài liệu
+   (không còn mâu thuẫn "5 plane" ở phần giới thiệu và "12 plane" ở phụ lục).
 
 Bản mở rộng này chuyển nội dung từ một danh sách pattern thành một reference architecture có hệ
-thống. Các phần mới bổ sung đầy đủ data pipeline, retrieval algorithms, memory, tool execution,
-interoperability, fault tolerance, security, evaluation và production operations, đồng thời giữ
-nguyên ba trục chính RAG, AI Agent và Multi-Agent đã xây dựng ban đầu.
+thống. Các phần bổ sung phủ đầy đủ data pipeline, retrieval algorithms, memory/state/context,
+tool execution, interoperability, fault tolerance, security, evaluation và production operations,
+đồng thời giữ nguyên ba trục chính RAG, AI Agent và Multi-Agent đã xây dựng ban đầu.
